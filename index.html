@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Metro SP</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+
+
+</head>
+
+<body>
+  <header>Metro SP</header>
+
+  <div class="container">
+    <div class="sidebar">
+      <label>Origem</label>
+      <select id="origem"></select>
+
+      <label>Destino</label>
+      <select id="destino"></select>
+
+      <button onclick="calcular()">Calcular rota</button>
+
+      <div class="result" id="result"></div>
+    </div>
+
+    <div id="cy"></div>
+  </div>
+
+<script src="app.js"></script>
+</body>
+
+</html>
