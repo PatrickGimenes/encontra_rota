@@ -1,68 +1,69 @@
 
 const edges = [
+
   // Linha Azul
-  { from: "A1", to: "A2", weight: 2, line: "azul" },
-  { from: "A2", to: "A3", weight: 2, line: "azul" },
-  { from: "A3", to: "H1", weight: 3, line: "azul" },
-  { from: "A3", to: "B2", weight: 3, line: "azul" },
-  { from: "A1", to: "D2", weight: 3, line: "azul" },
+  { from: "Jardim Sul", to: "Vila Nova", weight: 2, line: "azul" },
+  { from: "Vila Nova", to: "Parque Central", weight: 2, line: "azul" },
+  { from: "Parque Central", to: "República", weight: 3, line: "azul" },
+  { from: "Parque Central", to: "Bela Vista", weight: 3, line: "azul" },
+  { from: "Jardim Sul", to: "Universidade", weight: 7, line: "azul" },
 
   // Linha Verde
-  { from: "B1", to: "B2", weight: 2, line: "verde" },
-  { from: "B2", to: "B3", weight: 2, line: "verde" },
-  { from: "B3", to: "H1", weight: 3, line: "verde" },
-  { from: "B2", to: "E2", weight: 3, line: "verde" },
+  { from: "Morumbi", to: "Bela Vista", weight: 2, line: "verde" },
+  { from: "Bela Vista", to: "Paulista", weight: 2, line: "verde" },
+  { from: "Paulista", to: "República", weight: 3, line: "verde" },
+  { from: "Bela Vista", to: "Pinheiros", weight: 9, line: "verde" },
 
   // Linha Vermelha
-  { from: "C1", to: "C2", weight: 2, line: "vermelha" },
-  { from: "C2", to: "C3", weight: 2, line: "vermelha" },
-  { from: "C3", to: "H2", weight: 3, line: "vermelha" },
+  { from: "Tatuapé", to: "Carrão", weight: 2, line: "vermelha" },
+  { from: "Carrão", to: "Penha", weight: 2, line: "vermelha" },
+  { from: "Penha", to: "Sé", weight: 8, line: "vermelha" },
 
   // Linha Amarela
-  { from: "D1", to: "D2", weight: 2, line: "amarela" },
-  { from: "D2", to: "D3", weight: 2, line: "amarela" },
-  { from: "D3", to: "H2", weight: 3, line: "amarela" },
+  { from: "Universidade", to: "Butantã", weight: 2, line: "amarela" },
+  { from: "Butantã", to: "Faria Lima", weight: 2, line: "amarela" },
+  { from: "Faria Lima", to: "Sé", weight: 5, line: "amarela" },
 
   // Linha Roxa
-  { from: "E1", to: "E2", weight: 2, line: "roxa" },
-  { from: "E2", to: "E3", weight: 2, line: "roxa" },
-  { from: "E3", to: "H3", weight: 3, line: "roxa" },
+  { from: "Capão Redondo", to: "Santo Amaro", weight: 2, line: "roxa" },
+  { from: "Santo Amaro", to: "Pinheiros", weight: 2, line: "roxa" },
+  { from: "Pinheiros", to: "Luz", weight: 3, line: "roxa" },
 
-  // HUBS (baldeação)
-  { from: "H1", to: "H2", weight: 4, line: "hub" },
-  { from: "H2", to: "H3", weight: 4, line: "hub" },
+  //Linha Laranja
+  { from: "Tatuapé", to: "Butantã", weight: 2, line: "laranja" },
+  { from: "Morumbi", to: "Tatuapé", weight: 2, line: "laranja" },
+  { from: "Vila Nova", to: "Morumbi", weight: 3, line: "laranja" },
+
+  // Integrações
+  { from: "República", to: "Sé", weight: 4, line: "hub" },
+  { from: "Sé", to: "Luz", weight: 4, line: "hub" },
 ];
 
 const positions = {
-  // AZUL (linha horizontal topo)
-  A1: { x: 100, y: 100 },
-  A2: { x: 200, y: 100 },
-  A3: { x: 300, y: 100 },
 
-  // VERDE
-  B1: { x: 100, y: 200 },
-  B2: { x: 200, y: 200 },
-  B3: { x: 300, y: 200 },
+  "Jardim Sul": { x: 75, y: 100 },
+  "Vila Nova": { x: 250, y: 80 },
+  "Parque Central": { x: 400, y: 120 },
 
-  // VERMELHA
-  C1: { x: 100, y: 300 },
-  C2: { x: 200, y: 300 },
-  C3: { x: 300, y: 300 },
+  "Morumbi": { x: 120, y: 250 },
+  "Bela Vista": { x: 250, y: 250 },
+  "Paulista": { x: 500, y: 200 },
 
-  // AMARELA
-  D1: { x: 100, y: 400 },
-  D2: { x: 250, y: 400 },
-  D3: { x: 300, y: 400 },
+  "Tatuapé": { x: 140, y: 400 },
+  "Carrão": { x: 300, y: 380 },
+  "Penha": { x: 450, y: 350 },
 
-  // ROXA
-  E1: { x: 100, y: 500 },
-  E2: { x: 200, y: 500 },
-  E3: { x: 300, y: 500 },
+  "Universidade": { x: 90, y: 550 },
+  "Butantã": { x: 300, y: 520 },
+  "Faria Lima": { x: 550, y: 500 },
 
-  // HUBS (coluna central)
-  H1: { x: 500, y: 150 },
-  H2: { x: 500, y: 300 },
-  H3: { x: 500, y: 450 },
+  "Capão Redondo": { x: 120, y: 700 },
+  "Santo Amaro": { x: 330, y: 650 },
+  "Pinheiros": { x: 550, y: 600 },
+
+  "República": { x: 800, y: 180 },
+  "Sé": { x: 850, y: 400 },
+  "Luz": { x: 800, y: 620 }
 };
 
 const lineColor = {
@@ -71,6 +72,7 @@ const lineColor = {
   vermelha: "#e53935",
   amarela: "#fbc02d",
   roxa: "#8e24aa",
+  laranja: "#c06418",
   hub: "#555",
 };
 
@@ -80,21 +82,45 @@ const cy = cytoscape({
 
   style: [
     {
-      selector: "node",
-      style: {
-        label: "data(id)",
-        "background-color": "#fff",
-        "border-width": 2,
-        "border-color": "#333",
-        "font-size": 10,
-      },
-    },
-    {
       selector: "edge",
       style: {
-        width: 4,
+        "width": 4,
         "line-color": "#999",
-      },
+
+        "label": "data(distance)",
+
+        "font-size": 14,
+
+        "text-background-opacity": 1,
+        "text-background-color": "#fff",
+        "text-background-padding": "2px",
+
+        "text-rotation": "autorotate",
+        "color": "#000"
+      }
+    },
+
+    {
+      selector: "node",
+      style: {
+        "label": "data(id)",
+        "background-color": "#ffffff",
+        "border-width": 2,
+        "border-color": "#333",
+        "color": "#000",
+        "font-size": 12,
+        "text-valign": "bottom",
+        "text-margin-y": 10
+      }
+    },
+    {
+      selector: 'node[tipo = "hub"]',
+      style: {
+        width: 40,
+        height: 40,
+        'border-width': 4,
+        'border-color': '#000'
+      }
     },
     {
       selector: ".route",
@@ -117,12 +143,21 @@ edges.forEach((e) => {
 });
 
 nodes.forEach((n) => {
+
   cy.add({
     group: "nodes",
-    data: { id: n },
-    position: positions[n],
+    data: {
+      id: n,
+      tipo: ["República", "Sé", "Luz"].includes(n)
+        ? "hub"
+        : "normal"
+    },
+    position: positions[n]
   });
+
 });
+
+
 
 // ARESTAS
 
@@ -134,12 +169,15 @@ edges.forEach((e, i) => {
       id: `${e.from}-${e.to}-${i}`,
       source: e.from,
       target: e.to,
+      distance: `${e.weight} km`,
+      originalColor: lineColor[e.line]
     },
     style: {
       "line-color": lineColor[e.line] || "#999",
     },
   });
 });
+
 
 
 const select1 = document.getElementById("origem");
@@ -310,8 +348,87 @@ function drawRoute(path) {
 }
 
 function calcular() {
-  const p = dijkstra(select1.value, select2.value);
-  drawRoute(p);
+  resetarMapa();
 
-  document.getElementById("result").innerHTML = "Rota: " + p.join(" -> ");
+  const origem = select1.value;
+  const destino = select2.value;
+
+  const path = dijkstra(origem, destino);
+
+  drawRoute(path);
+
+  const distanciaTotal = calcularDistanciaTotal(path);
+
+  document.getElementById("result").innerHTML = `
+  <div>
+    <b>Rota</b><br>
+    ${path.join(" > ")}
+  </div>
+  <hr>
+  <div>
+    <b>Distância Total</b><br>
+    ${distanciaTotal} km
+  </div>
+
+  <div style="margin-top:10px">
+    <b>Estações</b><br>
+    ${path.length}
+  </div>
+`;
+
+  result.classList.remove("hidden");
+}
+
+function calcularDistanciaTotal(path) {
+
+  let total = 0;
+
+  for (let i = 0; i < path.length - 1; i++) {
+
+    const origem = path[i];
+    const destino = path[i + 1];
+
+    const edge = edges.find(e =>
+      (e.from === origem && e.to === destino) ||
+      (e.from === destino && e.to === origem)
+    );
+
+    if (edge) {
+      total += edge.weight;
+    }
+  }
+
+  return total;
+}
+
+function resetarMapa() {
+
+  cy.nodes().forEach(node => {
+
+    node.style({
+      opacity: 1,
+      "background-color": "#fff",
+      "border-width": 2,
+      "border-color": "#333",
+      "font-size": 12
+    });
+
+    const result = document.getElementById("result");
+
+    result.innerHTML = "";
+    result.classList.add("hidden");
+
+  });
+
+  cy.edges().forEach(edge => {
+
+    edge.style({
+      opacity: 1,
+      width: 4,
+      "line-color": edge.data("originalColor")
+    });
+
+  });
+
+  document.getElementById("result").innerHTML = "";
 }
