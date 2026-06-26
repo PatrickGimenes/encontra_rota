@@ -7,6 +7,7 @@ const edges = [
   { from: "Parque Central", to: "República", weight: 3, line: "azul" },
   { from: "Parque Central", to: "Bela Vista", weight: 3, line: "azul" },
   { from: "Jardim Sul", to: "Universidade", weight: 7, line: "azul" },
+  { from: "Universidade", to: "Capão Redondo", weight: 7, line: "azul" },
 
   // Linha Verde
   { from: "Morumbi", to: "Bela Vista", weight: 2, line: "verde" },
